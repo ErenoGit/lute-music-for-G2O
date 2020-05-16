@@ -1,24 +1,24 @@
-local czyGra = false;
-local kolejnosc = 0;
-local muzyczka;
+local isPlay = false;
+local queue = 0;
+local music;
 
-local lutnia1 = Sound("LUTE_01.WAV");
-local lutnia2 = Sound("LUTE_03.WAV");
-local lutnia3 = Sound("LUTE_04.WAV");
-local lutnia4 = Sound("LUTE_05.WAV");
-local lutnia5 = Sound("LUTE_06.WAV");
-local lutnia6 = Sound("LUTE_07.WAV");
+local lute1 = Sound("LUTE_01.WAV");
+local lute2 = Sound("LUTE_03.WAV");
+local lute3 = Sound("LUTE_04.WAV");
+local lute4 = Sound("LUTE_05.WAV");
+local lute5 = Sound("LUTE_06.WAV");
+local lute6 = Sound("LUTE_07.WAV");
 
 
 addEventHandler("onUseItem", function(instance, amount, hand)
 {
 	if(instance.toupper() == "ITMI_LUTE")
 	{
-	czyGra = true;
-	muzyczka = setTimer(LeciMuzyka, 3000, 0);
-	kolejnosc = 1;
-	lutnia1.play();
-	callServerFunc("Graj_lutnia1", heroId);
+		isPlay = true;
+		music = setTimer(LeciMuzyka, 3000, 0);
+		queue = 1;
+		lute1.play();
+		callServerFunc("Play_lute1", heroId);
 	}	
 });
 
@@ -26,71 +26,71 @@ function LeciMuzyka()
 {
 	if(getPlayerAni(heroId)!="S_LUTE_S1")
 	{
-		killTimer(muzyczka);
+		killTimer(music);
 	}
 
-		kolejnosc++;
+		queue++;
 		
-		if(kolejnosc==1)
+		if(queue==1)
 		{
-			lutnia1.play();	
-			callServerFunc("Graj_lutnia1", heroId);
+			lute1.play();	
+			callServerFunc("Queue_lute1", heroId);
 		}
-		else if(kolejnosc==2)
+		else if(queue==2)
 		{
-			lutnia2.play();	
-			callServerFunc("Graj_lutnia2", heroId);
+			lute2.play();	
+			callServerFunc("Queue_lute2", heroId);
 		}
-		else if(kolejnosc==3)
+		else if(queue==3)
 		{
-			lutnia3.play();	
-			callServerFunc("Graj_lutnia3", heroId);
+			lute3.play();	
+			callServerFunc("Queue_lute3", heroId);
 		}
-		else if(kolejnosc==4)
+		else if(queue==4)
 		{
-			lutnia4.play();	
-			callServerFunc("Graj_lutnia4", heroId);
+			lute4.play();	
+			callServerFunc("Queue_lute4", heroId);
 		}
-		else if(kolejnosc==5)
+		else if(queue==5)
 		{
-			lutnia5.play();	
-			callServerFunc("Graj_lutnia5", heroId);
+			lute5.play();	
+			callServerFunc("Queue_lute5", heroId);
 		}
-		else if(kolejnosc==6)
+		else if(queue==6)
 		{
-			lutnia6.play();	
-			callServerFunc("Graj_lutnia6", heroId);
-			kolejnosc = 0;
+			lute6.play();	
+			callServerFunc("Queue_lute6", heroId);
+			queue = 0;
 		}
 }
 
 
-function Odtwarzaj_lutnia1()
+function Play_lute1()
 {
-lutnia1.play();	
+	lute1.play();	
 }
 
-function Odtwarzaj_lutnia2()
+function Play_lute2()
 {
-lutnia2.play();	
+	lute2.play();	
 }
 
-function Odtwarzaj_lutnia3()
+function Play_lute3()
 {
-lutnia3.play();	
+	lute3.play();	
 }
 
-function Odtwarzaj_lutnia4()
+function Play_lute4()
 {
-lutnia4.play();	
+	lute4.play();	
 }
 
-function Odtwarzaj_lutnia5()
+function Play_lute5()
 {
-lutnia5.play();	
+	lute5.play();	
 }
 
-function Odtwarzaj_lutnia6()
+function Play_lute6()
 {
-lutnia6.play();	
+	lute6.play();	
 }
