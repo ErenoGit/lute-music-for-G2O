@@ -18,7 +18,7 @@ addEventHandler("onUseItem", function(instance, amount, hand)
 		music = setTimer(LeciMuzyka, 3000, 0);
 		queue = 1;
 		lute1.play();
-		callServerFunc("Play_lute1", heroId);
+		//callServerFunc("Play_lute1", heroId); //This causes an error in the server console
 	}	
 });
 
