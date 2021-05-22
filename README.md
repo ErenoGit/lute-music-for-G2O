@@ -1,3 +1,4 @@
+![bagde](https://img.shields.io/github/languages/top/ErenoGit/lute-music-for-G2O)
 # lute-music-for-G2O
 Simple script that allows you to play an example music after using the lute on Gothic 2 Online server
 
